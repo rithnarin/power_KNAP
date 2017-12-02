@@ -2,7 +2,13 @@ require('dotenv').config();
 const _ = require('lodash');
 const Sequelize = require('sequelize');
 
+<<<<<<< HEAD
 let params = { logging: false };
+=======
+let params = {
+  logging: false,
+};
+>>>>>>> Fix Bug
 if (!process.env.LOCAL) {
   params = {
     dialect: 'postgres',
@@ -46,8 +52,8 @@ const RoomVideos = sequelize.define('roomvideos', {
     defaultValue: 0,
   },
 });
-Video.belongsToMany(Room, { through: RoomVideos });
-Room.belongsToMany(Video, { through: RoomVideos });
+Video.belongsToMany(Room, { through: RoomVideos, unique: false });
+Room.belongsToMany(Video, { through: RoomVideos, unique: false });
 
 // uncomment this first time running, then comment
 
@@ -173,7 +179,7 @@ const vote = (room, video, sign) => {
   } else {
     return RoomVideos.update({ votes: Sequelize.literal('votes - 1') }, { where: { roomId: room, videoId: video }})
   }
-  
+
 }
 
 exports.Room = Room;

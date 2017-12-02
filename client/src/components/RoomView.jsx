@@ -118,11 +118,11 @@ class RoomView extends React.Component {
 
   vote(videoId, videoName, sign) {
     roomSocket.emit('vote', this.props.roomId, videoId, sign)
-    console.log(`Voted ${sign} on video '${videoName}' in room ${this.props.roomId}`)
+    //console.log(`Voted ${sign} on video '${videoName}' in room ${this.props.roomId}`)
   }
 
   renderRoom() {
-    console.log('Render room called. Room id was: ', this.props.roomId);
+    //console.log('Render room called. Room id was: ', this.props.roomId);
     return axios.get(`/room/${this.props.roomId}`)
       .then(({ data }) => {
         // console.log('Room id was: ', this.props.roomId);

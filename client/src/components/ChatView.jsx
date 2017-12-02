@@ -35,7 +35,6 @@ class ChatView extends React.Component {
         }),
       });
     }
-    console.log(this.state.messages);
   }
 
   sendMessage(time, message) {
