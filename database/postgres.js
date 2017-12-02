@@ -55,16 +55,13 @@ Room.belongsToMany(Video, { through: RoomVideos });
 // Video.sync({ force: true })
 //   .then(() => Room.sync({ force: true }))
 //   .then(() => RoomVideos.sync({ force: true }))
-//   .then(() => { // Seed room table to avoid errors
-//     return Room.findOrCreate({ where: { id: 1 } })
-//       .catch(err => console.log('Error in Sequelize: ', err));
-//   })
 //   .then(() => Users.sync({ force: true }))
 //   .catch(err => console.log('Error syncing in Sequelize: ', err));
 
 const createRoom = (name) => {
   const newRoom = {
     name: name,
+    indexKey: 0,
   }
 
   return Room.findOne({where: {name: name}})

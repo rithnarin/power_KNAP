@@ -1,7 +1,8 @@
 import React from 'react';
 
 const RoomListEntry = (props) => (
-  <li onClick={() => {
+  <li className="room-choice"
+    onClick={() => {
       props.setRoomId(props.room.id);
       props.changeView('room');
     }}>

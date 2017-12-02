@@ -6,8 +6,7 @@
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "start": "node server/index.js",
-    "test-client": "mocha client/test",
-    "test-server": "mocha server/test",
+    "test": "mocha --inline-diffs spec/test.js; pkill -n node;",
     "locaroku": "heroku local web -e .env"
   },
   "engines": {
@@ -47,14 +46,18 @@
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "cardboard": "^2.2.2",
     "chai": "^4.1.2",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
+    "jquery": "^3.2.1",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
+    "sinon": "^4.1.2",
+    "supertest": "^3.0.0",
     "webpack": "^3.8.1"
   }
 }
