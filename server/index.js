@@ -12,7 +12,12 @@ const port = process.env.PORT;
 const server = http.createServer(app);
 const io = require('socket.io').listen(server);
 
-server.listen(port, () => console.log(`listening on port ${port}`));
+if (module.parent) {
+  module.exports = server;
+} else {
+  server.listen(port, () => console.log(`listening on port ${port}`));
+}
+
 app.use(express.static(`${__dirname}./../client`));
 const roomSpace = io.of('/room');
 
