@@ -180,20 +180,21 @@ roomSpace.on('connection', (socket) => {
   socket.on('emitMessage', (message) => {
     // message.userName = message.userName.split('#')[1].substring(0, 8); // Pluck Socket ID
     // let sum = 0;
-    // for (let i = 0; i < 3; i += 1) {
+    // for (let i = 0; i < 3; i += 1) {f
     //   sum += message.userName.charCodeAt(i);
     // }
     // const colors = ['#ffb3ba', '#ffd2b3', '#fff8b3', '#baffb3', '#bae1ff', '#e8baff'];
     // const userColor = colors[(sum % colors.length)];
     // message.userColor = userColor;
-    var roomStatusMessage = {
-      body: 'Welcome to room ' + roomId,
-      userName: 'socket.io bot',
-      dateTime: Date.now(),
-    };
+    // var roomStatusMessage = {
+    //   body: 'Welcome to room ' + roomId,
+    //   userName: 'socket.io bot',
+    //   dateTime: Date.now(),
+    // };
     // console.log(roomId);
-    roomSpace.to(roomId).emit('pushingMessage', roomStatusMessage);
-    roomSpace.emit('pushingMessage', message);
+    // roomSpace.to(roomId).emit('pushingMessage', roomStatusMessage);
+
+    roomSpace.to(roomId).emit('pushingMessage', message);
   });
 
   socket.on('vote', (room, video, sign) => {
