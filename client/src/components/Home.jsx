@@ -6,6 +6,7 @@ const Home = (props) => (
       <section className="jumbotron text-center">
         <div className="container">
           <h1 className="jumbotron-heading">Fam.ly</h1>
+          <p>Join people and watch videos together as a Fam.ly !</p>
           <p>
             <button className="btn btn-sm btn-secondary" onClick={props.openModal}>Select Room</button>
           </p>
