@@ -33,6 +33,7 @@ class App extends React.Component {
       view: 'home',
       user: {},
       roomId: 1,
+      roomName: name,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -85,6 +86,7 @@ class App extends React.Component {
     } else if (view === 'room') {
       return <RoomView
         roomId={this.state.roomId}
+        roomName={this.state.roomName}
         closeModal={this.closeModal}
         getUser={this.getUser} />;
     } else if (view === 'user') {
@@ -113,9 +115,10 @@ class App extends React.Component {
       })
   }
 
-  setRoomId(id) {
+  setRoomId(id, name) {
     this.setState({
       roomId: id,
+      roomName: name,
     });
   }
 

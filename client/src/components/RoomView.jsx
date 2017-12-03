@@ -18,6 +18,7 @@ class RoomView extends React.Component {
     this.state = {
       currentVideo: undefined,
       playlist: [],
+      roomName: '',
       startOptions: null,
       isHost: false,
       message: '',
@@ -151,22 +152,25 @@ class RoomView extends React.Component {
       />);
 
     return (
-      <div className="room">
-        {playlistComponent}
-        <VideoPlayer
-          currentVideo={this.state.currentVideo}
-          opts={this.state.startOptions}
-          onReady={this.onPlayerReady}
-          onStateChange={this.onPlayerStateChange}
-        />
-        <Search saveToPlaylist={this.saveToPlaylist} />
-        <ChatView
-          message={this.state.message}
-          date={this.state.dateTime}
-          username={this.state.username}
-          emitMessage={this.emitMessage}
-          getUser={this.props.getUser}
-        />
+      <div>
+        <h1 className="text-center">{ this.props.roomName }</h1>
+        <div className="room">
+          {playlistComponent}
+          <VideoPlayer
+            currentVideo={this.state.currentVideo}
+            opts={this.state.startOptions}
+            onReady={this.onPlayerReady}
+            onStateChange={this.onPlayerStateChange}
+          />
+          <Search saveToPlaylist={this.saveToPlaylist} />
+          <ChatView
+            message={this.state.message}
+            date={this.state.dateTime}
+            username={this.state.username}
+            emitMessage={this.emitMessage}
+            getUser={this.props.getUser}
+          />
+        </div>
       </div>
     );
   }
