@@ -53,7 +53,7 @@ class ChatView extends React.Component {
   render() {
     return (
       <div className="container userChat">
-        <h3>Chat Box</h3>
+        <h3>{ this.props.roomName }</h3>
         <div className="scroll">
           <div className="messageContainer">
             <Messages

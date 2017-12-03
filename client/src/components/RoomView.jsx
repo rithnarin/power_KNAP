@@ -153,7 +153,6 @@ class RoomView extends React.Component {
 
     return (
       <div>
-        <h1 className="text-center">{ this.props.roomName }</h1>
         <div className="room">
           {playlistComponent}
           <VideoPlayer
@@ -169,6 +168,7 @@ class RoomView extends React.Component {
             username={this.state.username}
             emitMessage={this.emitMessage}
             getUser={this.props.getUser}
+            roomName={this.props.roomName}
           />
         </div>
       </div>

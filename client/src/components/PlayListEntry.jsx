@@ -6,31 +6,33 @@ const PlaylistEntry = ({ song, index, isHost, removeSelected, vote, removeForHos
 
   return (
       <div className="playlistEntry">
-      Votes: {song.roomvideos.votes}
-        <button className="voteButton"  onClick={() => { 
-          vote(song.id, song.videoName, '+')
-          }}>
-          
-          +
-        </button>
-        <button className="voteButton"  onClick={() => { 
-          vote(song.id, song.videoName, '-')
-          }}>
-          
-          -
-        </button>
-        
-        {isHost &&
-        <button className="deleteButton" onClick={() => { removeForHost(song.videoName); }}>
-          Remove for Host
-          </button>
-      }
-      {!isHost &&
-        <button className="deleteButton" onClick={() => { removeSelected(song.videoName); }}>
-          Remove
-          </button>
-      }
         <div className="songTitle">{index}. {song.videoName} </div>
+          Votes: {song.roomvideos.votes}
+          <div class="btn-group btn-group-sm voteButton">
+            <button className="btn btn-success"  onClick={() => {
+                vote(song.id, song.videoName, '+')
+              }}>
+
+              +
+            </button>
+            <button className="btn btn-warning"  onClick={() => {
+                vote(song.id, song.videoName, '-')
+              }}>
+
+              -
+            </button>
+
+            {isHost &&
+              <button className="btn btn-danger" onClick={() => { removeForHost(song.videoName); }}>
+                Remove for Host
+              </button>
+            }
+            {!isHost &&
+              <button className="btn btn-danger" onClick={() => { removeSelected(song.videoName); }}>
+                Remove
+              </button>
+            }
+          </div>
       </div>
     );
 };

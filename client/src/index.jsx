@@ -12,13 +12,14 @@ import UserProfile from './components/UserProfile';
 
 const customStyles = {
   content : {
-    top                   : '50%',
+    top                   : '25%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     overflowY             : 'auto',
+    background            : '#343a40',
   }
 };
 
@@ -71,7 +72,7 @@ class App extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#000';
+    this.subtitle.style.color = '#fff';
   }
 
   closeModal() {

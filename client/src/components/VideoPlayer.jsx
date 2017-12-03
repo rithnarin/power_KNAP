@@ -23,7 +23,7 @@ const VideoPlayer = ({ currentVideo, opts, onReady, onStateChange }) => {
   }
   return (
     <div className="container videoplayer">
-      <img className="fillerImage" src="https://78.media.tumblr.com/2b92d1386a908d98d7a1a855161157cc/tumblr_o8xmm4cH7l1ubz7jho1_500.gif" alt="pizza boy" />
+      <img className="fillerImage" src="http://ift.tt/1vsN3B2" alt="pizza boy" />
     </div>
   );
 };

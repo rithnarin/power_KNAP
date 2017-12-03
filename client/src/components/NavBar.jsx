@@ -6,13 +6,14 @@ import Alert from 'react-alert';
 
 const customStyles = {
   content : {
-    top                   : '50%',
+    top                   : '25%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     overflowY             : 'auto',
+    background            : '#343a40',
   }
 };
 
@@ -26,7 +27,7 @@ class NavBar extends React.Component {
     }
 
     this.alertOptions = {
-      offset: 14,
+      offset: 200,
       position: 'bottom left',
       theme: 'dark',
       time: 5000,
@@ -136,13 +137,17 @@ class NavBar extends React.Component {
             style={customStyles}
             >
             <h2 ref={subtitle => this.subtitle = subtitle}>Create a Room</h2>
-            <input
-              placeholder="Room Name"
-              onChange={ (e) => this.setState({ createInput: e.target.value }) } ></input>
-            <button
-              onClick={ () => this.createRoom() }>Create</button>
-            <hr></hr>
-            <button onClick={() => this.closeCreateModal()}>Close</button>
+            <div class="input-group">
+              <input
+                className="form-control"
+                placeholder="Room Name"
+                onChange={ (e) => this.setState({ createInput: e.target.value }) } ></input>
+              <span class="input-group-btn">
+                <button
+                  className="btn btn-secondary"
+                  onClick={ () => this.createRoom() }>Create</button>
+              </span>
+            </div>
           </CreateModal>
           <Alert ref={a => this.msg = a} {...this.alertOptions} />
 
