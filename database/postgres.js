@@ -2,7 +2,7 @@ require('dotenv').config();
 const _ = require('lodash');
 const Sequelize = require('sequelize');
 
-let params = {};
+let params = { logging: false };
 if (!process.env.LOCAL) {
   params = {
     dialect: 'postgres',
@@ -82,22 +82,21 @@ const createRoom = (name) => {
 }
 
 const createVideoEntry = (videoData, roomId) => {
-  // console.log(videoData);
   const videoEntry = {
     videoName: videoData.title,
     creator: videoData.creator,
     url: videoData.url,
     description: videoData.description,
   };
-  return Video.findOrCreate({ where: { url: videoData.url }, defaults: videoEntry })
+  // DO NOT CHANGE TO findOrCreate !!!!!11111
+  return Video.findCreateFind({ where: { url: videoData.url }, defaults: videoEntry })
     .spread((video) => {
-      RoomVideos.create({
+      return RoomVideos.create({
         videoId: video.id,
-        roomId,
+        roomId: roomId,
       });
-      console.log('DONE CREATING ROOMVIDEOS');
-    }) // returns a promise when called
-    .catch(err => console.log('Error creating RoomVideos: ', err));
+    })
+    .catch(err => {});
 };
 
 // Room Queries
@@ -180,6 +179,8 @@ const vote = (room, video, sign) => {
 
 exports.createRoom = createRoom;
 exports.Room = Room;
+exports.Users = Users;
+exports.Video = Video;
 exports.findUser = findUser;
 exports.roomVideos = RoomVideos;
 exports.getRoomVideos = getRoomVideos;
@@ -194,6 +195,5 @@ exports.findVideos = findVideos;
 exports.removeFromPlaylist = removeFromPlaylist;
 exports.db = sequelize;
 exports.saveGoogleUser = saveGoogleUser;
-exports.Users = Users;
 exports.vote = vote;
 exports.createRoom = createRoom;
