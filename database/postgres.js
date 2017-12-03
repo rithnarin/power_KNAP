@@ -2,13 +2,8 @@ require('dotenv').config();
 const _ = require('lodash');
 const Sequelize = require('sequelize');
 
-<<<<<<< HEAD
 let params = { logging: false };
-=======
-let params = {
-  logging: false,
-};
->>>>>>> Fix Bug
+
 if (!process.env.LOCAL) {
   params = {
     dialect: 'postgres',
